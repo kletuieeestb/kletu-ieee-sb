@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time. Never cancel a deploy that is already running.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout static site
+        uses: actions/checkout@v4
+
+      - name: Read Pages settings
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Copy the public files (everything not listed in .assetsignore)
+        run: rsync -a --exclude-from=.assetsignore ./ "$RUNNER_TEMP/site/"
+
+      - name: Point sitemap and share links at the address the site is served from
+        working-directory: ${{ runner.temp }}/site
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          # The CMS writes absolute URLs from its own site-URL setting, which can be
+          # stale. GitHub knows the real address: the custom domain once one is set
+          # in Settings > Pages, the github.io address before that.
+          sed -i -E "s#<loc>https?://[^/<]+#<loc>${SITE_URL%/}#g" sitemap.xml
+          find . -name '*.html' -exec sed -i -E "s#(property=\"og:url\" content=\")https?://[^/\"]+#\1${SITE_URL%/}#" {} +
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5

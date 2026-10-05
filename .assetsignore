@@ -1,0 +1,11 @@
+# Files in this repo that are not part of the website. Same format as .gitignore.
+# Read by Cloudflare (wrangler) when it uploads the site, and by
+# .github/workflows/deploy-pages.yml when it publishes to GitHub Pages.
+# Add any new internal file here so it never goes live.
+/.git
+/.github
+/.assetsignore
+/wrangler.jsonc
+*.md
+/events/_template.html
+/achievements/_template.html
