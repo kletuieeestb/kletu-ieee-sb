@@ -16,7 +16,7 @@
       logo: 'assets/images/CASS.webp',
       desc: 'Focusing on the design, analysis, and implementation of analog, digital, sensor interface, and neuromorphic circuit processing.',
       type: 'society',
-      slug: 'societies.html#cass'
+      slug: 'societies#cass'
     },
     {
       id: 'ceda',
@@ -25,7 +25,7 @@
       logo: 'assets/images/CEDA.webp',
       desc: 'Exploring computer-aided design (CAD) algorithms, SoC architecture, logic synthesis, hardware security, and VLSI chip systems.',
       type: 'society',
-      slug: 'societies.html#ceda'
+      slug: 'societies#ceda'
     },
     {
       id: 'pes',
@@ -34,7 +34,7 @@
       logo: 'assets/images/PES.webp',
       desc: 'Providing scientific and engineering insights on grid modernization, renewable energy integration, and sustainable transmission solutions.',
       type: 'society',
-      slug: 'societies.html#pes'
+      slug: 'societies#pes'
     },
     {
       id: 'cs',
@@ -43,7 +43,7 @@
       logo: 'assets/images/CS.webp',
       desc: 'The oldest and largest technical society in IEEE, focused on software engineering, machine learning, cybersecurity, and computer systems.',
       type: 'society',
-      slug: 'societies.html#cs'
+      slug: 'societies#cs'
     },
     {
       id: 'pels',
@@ -52,7 +52,7 @@
       logo: 'assets/images/PELS.webp',
       desc: 'Advancing power conversion technologies critical to EV drivetrains, solar inverters, smart grids, and high-efficiency electrical systems.',
       type: 'society',
-      slug: 'societies.html#pels'
+      slug: 'societies#pels'
     },
     {
       id: 'ras',
@@ -61,7 +61,7 @@
       logo: 'assets/images/RAS.webp',
       desc: 'Fostering hands-on development in autonomous robotics, mechanical engineering, control systems, and computer vision.',
       type: 'society',
-      slug: 'societies.html#ras'
+      slug: 'societies#ras'
     },
     {
       id: 'embs',
@@ -70,7 +70,7 @@
       logo: 'assets/images/EMBS.webp',
       desc: 'Advancing healthcare and biomedical engineering through medical technology, bio-instrumentation, neural engineering, and health informatics.',
       type: 'society',
-      slug: 'societies.html#embs'
+      slug: 'societies#embs'
     },
     {
       id: 'wie',
@@ -79,7 +79,7 @@
       logo: 'assets/images/WIE.webp',
       desc: 'Promoting gender equity, professional mentoring, and career development to support and inspire women engineers globally.',
       type: 'group',
-      slug: 'affinity-groups.html#wie'
+      slug: 'affinity-groups#wie'
     }
   ];
 

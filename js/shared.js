@@ -49,10 +49,15 @@
     }
 
     // Mark current page in nav
-    const here = location.pathname.split('/').pop() || 'index.html';
+    // Links have no ".html" ("societies", "./" for home); old addresses may.
+    const pageName = (path) =>
+      (path.split(/[?#]/)[0].split('/').pop() || 'index').replace(/\.html$/, '');
+    const here = pageName(location.pathname);
     nav.querySelectorAll('.nav__links a').forEach((a) => {
       const href = a.getAttribute('href');
-      if (href && href.endsWith(here)) a.setAttribute('aria-current', 'page');
+      if (href && !href.startsWith('#') && pageName(href) === here) {
+        a.setAttribute('aria-current', 'page');
+      }
     });
   }
 
