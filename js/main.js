@@ -5,6 +5,18 @@
 (function () {
   'use strict';
 
+  // --- Clean address bar ---
+  // Pages are served with or without ".html". Old links and bookmarks still
+  // end in ".html", so show the clean address without reloading the page.
+  (function cleanAddress() {
+    if (!/^https?:$/.test(location.protocol) || !window.history || !history.replaceState) return;
+    var path = location.pathname;
+    var clean = path.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+    if (clean !== path) {
+      history.replaceState(history.state, '', clean + location.search + location.hash);
+    }
+  })();
+
   // --- Scroll Reveal (IntersectionObserver) ---
   function initRevealAnimations() {
     var reveals = document.querySelectorAll('.reveal');

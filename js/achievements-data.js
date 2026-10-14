@@ -47,7 +47,7 @@
   // Post-process to resolve full paths and fallbacks
   ACHIEVEMENTS.forEach(function (ach) {
     if (!ach.detailUrl && ach.slug) {
-      ach.detailUrl = 'achievements/' + ach.slug + '.html';
+      ach.detailUrl = 'achievements/' + ach.slug;
     }
     if (typeof ach.priority !== 'number') ach.priority = 0;
     if (!ach.category) ach.category = 'General';

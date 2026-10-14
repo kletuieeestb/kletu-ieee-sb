@@ -20,7 +20,7 @@
   ];
 
   EVENTS.forEach(function (ev) {
-    if (!ev.detailUrl) ev.detailUrl = 'events/' + ev.slug + '.html';
+    if (!ev.detailUrl) ev.detailUrl = 'events/' + ev.slug;
     if (typeof ev.priority !== 'number') ev.priority = 0;
     if (!ev.category) ev.category = '';
   });

@@ -37,7 +37,7 @@
     var month = MONTHS[date.getMonth()] || '';
     var year = date.getFullYear();
     var iso = event.date || '';
-    var detail = event.detailUrl || ('events/' + event.slug + '.html');
+    var detail = event.detailUrl || ('events/' + event.slug);
 
     var categoryHtml = event.category
       ? '<span class="event-card__category">' + escapeHtml(event.category) + '</span>'
@@ -135,7 +135,7 @@
 
     slidesData.forEach(function (ev, idx) {
       var activeClass = idx === 0 ? ' active' : '';
-      var detail = ev.detailUrl || ('events/' + ev.slug + '.html');
+      var detail = ev.detailUrl || ('events/' + ev.slug);
 
       slidesHtml +=
         '<div class="events-slide' + activeClass + '" data-slide-index="' + idx + '">' +
